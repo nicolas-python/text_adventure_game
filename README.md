@@ -13,12 +13,12 @@ Deine Entscheidungen bestimmen den Verlauf der Geschichte.
 
 ## Nutztung
 
--Wähle zunächst „1“, um deinem Abenteurer einen Namen zu geben
--Wähle „2“, um das Spiel zu starten
--Du wirst an verschiedenen Punkten nach Entscheidungen gefragt (ja/nein oder Richtungen)
--Deine Entscheidungen verändern den Spielverlauf
--Das Spiel ist rein textbasiert und läuft im Terminal
--Manche Entscheidungen führen zu sofortigem Tod des Charakters
+- Wähle zunächst „1“, um deinem Abenteurer einen Namen zu geben
+- Wähle „2“, um das Spiel zu starten
+- Du wirst an verschiedenen Punkten nach Entscheidungen gefragt (ja/nein oder Richtungen)
+- Deine Entscheidungen verändern den Spielverlauf
+- Das Spiel ist rein textbasiert und läuft im Terminal
+- Manche Entscheidungen führen zu sofortigem Tod des Charakters
 
 ## Beispiel
 
