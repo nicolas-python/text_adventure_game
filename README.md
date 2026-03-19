@@ -1,17 +1,17 @@
-#Text Adventure Game 
+# Text Adventure Game 
 
 Ein interaktives Text-Abenteuerspiel in Python.
 Du übernimmst die Rolle eines Abenteurers, der einen Wald erkundet.
 Deine Entscheidungen bestimmen den Verlauf der Geschichte.
 
-##Funktionen
+## Funktionen
 
 - Bennen deinen Abenteurer
 - Erkunde verschiedene Wege
 - Triff unterschiedliche Entscheidungen
 - Mehrere Enden, abhängig von deinen Entscheidungen
 
-##Nutztung
+## Nutztung
 
 -Wähle zunächst „1“, um deinem Abenteurer einen Namen zu geben
 -Wähle „2“, um das Spiel zu starten
@@ -20,7 +20,7 @@ Deine Entscheidungen bestimmen den Verlauf der Geschichte.
 -Das Spiel ist rein textbasiert und läuft im Terminal
 -Manche Entscheidungen führen zu sofortigem Tod des Charakters
 
-##Beispiel
+## Beispiel
 
 -  Willst du weitergehen? → ja/nein
 -  Willst du die Truhe öffnen? → ja/nein
