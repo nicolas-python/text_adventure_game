@@ -23,7 +23,7 @@ def Hero_name():
 
     name = input("Wie soll dein Abenteurer heißen? : ")
     print("Willkommen zu deinem Abenteuer", name)
-    print("Dein Abenteuerer heißt:",name)
+    print("Dein Abenteurer heißt:",name)
     print("Viel Erfolg, junger Abenteurer!")
     return name
 
@@ -32,7 +32,8 @@ def text_adventure_game(name):
     while True:
         print("Du bist in einem Wald",name)
 
-        choice = input("Wo willst du hin nach Norden,Osten,Süden,Westen oder Baum klettern? ").lower()
+        choice = input("Wo willst du hin? Nach Norden, Osten, Süden, Westen oder auf einen Baum klettern?").lower()
+        print("Wähle zwischen : norden,osten,süden,westen und baum aus")
 
         if choice == "süden":
             south(name)
@@ -50,23 +51,23 @@ def text_adventure_game(name):
 def north(name):
     print("Du gehst nach Norden, der Wald wird dunkler.")
 
-    choice2 = input("Willst du weitergehen? (ja/nein) ").lower()
+    choice2 = wrong_input("Willst du weitergehen? (ja/nein) ", ["ja","nein"])
 
     if choice2 == "ja":
-        print(name, "hörst du eine Stimme rufen.")
+        print(name, "du hörst eine Stimme rufen.")
 
-        choice3 = input("Willst du zurückrufen oder umkehren? (zurückrufen/umkehren) ").lower()
+        choice3 = wrong_input("Willst du zurückrufen oder umkehren? (zurückrufen/umkehren) ", ["(zurückrufen","umkehren"])
 
         if choice3 == "zurückrufen":
             print("Du versuchst mit der Stimme zu reden.")
 
-            choice4 = input("Willst du deinen wahren Namen sagen? (ja/nein) ").lower()
+            choice4 = wrong_input("Willst du deinen wahren Namen sagen? (ja/nein) ", ["ja","nein"])
 
             if choice4 == "ja":
                 print("Du sagst zögernd", name)
                 print("Das Wesen wirkt genervt: 'Hier ist es gefährlich, du solltest umkehren.'")
 
-                choice5 = input("Willst du auf den Rat hören? (ja/nein) ").lower()
+                choice5 = wrong_input("Willst du auf den Rat hören? (ja/nein) ", ["ja","nein"])
 
                 if choice5 == "ja":
                     print("Du kehrst um und landest wieder am Startpunkt.")
@@ -74,16 +75,16 @@ def north(name):
 
                 elif choice5 == "nein":
                     print("Du gehst tiefer in den dunklen Wald hinein.")
-                    print("Das seltsames Wesen steht hinter dir und lacht.")
+                    print("Das seltsame Wesen steht hinter dir und lacht.")
                     print("Es verschlingt dich mit Haut und Haar.")
-                    print("Das letze was man hört sind deine schreie und das kanacken deiner brechenden knochen und das lachen von dem Wesen.")
+                    print("Das letzte, was man hört, sind deine Schreie und das Knacken deiner brechenden Knochen und das Lachen des Wesens.")
                     print("Das war das grausame Ende von", name)
                     end()
 
             elif choice4 == "nein":
-                print("Du lügst, das Wesen lacht.")
+                print("'Du lügst': sagt das Wesen und lacht.")
                 print("Es verschlingt dich mit Haut und Haar.")
-                print("Das letze was man hört sind deine schreie und das kanacken deiner brechenden knochen und das kichern von dem Wesen.")
+                print("Das letzte was man hört sind deine schreie und das Knacken deiner brechenden knochen und das kichern von dem Wesen.")
                 end()
 
         elif choice3 == "umkehren":
@@ -101,11 +102,12 @@ def east(name):
         print("Darunter steht in Blut geschrieben: 'Sag die Wahrheit.'")
         print("Du machst dir nicht wirklich Gedanken darum.")
 
-        choice2 = input("Willst du weiter Richtung Osten laufen? (ja/nein) ").lower()
+        choice2 = wrong_input("Willst du weiter Richtung Osten laufen? (ja/nein) ", ["ja","nein"])
 
         if choice2 == "ja":
             print("Du läufst weiter Richtung Osten und findest eine Truhe.")
-            choice3 = input("Willst du die Truhe öffnen? (ja/nein) ")
+
+            choice3 = wrong_input("Willst du die Truhe öffnen? (ja/nein) ", ["ja","nein"])
 
             if choice3 == "ja":
                 print("Du öffnest die Truhe.")
@@ -127,63 +129,64 @@ def east(name):
 def south(name):
         print("Du hörst komische Geräusche.")
 
-        choice1 = input("Willst du in das gebüsch zu den geräuschen gehen ? (ja/nein) ").lower()
+        choice1 = wrong_input("Willst du in das Gebüsch zu den Geräuschen gehen? (ja/nein) ", ["ja","nein"])
 
         if choice1 == "ja":
-            print("Du gehst zögerlich zum gebüsch.")
-            print("Du atmest erleichtert auf es ist nur ein kleines Kätzchen.")
+            print("Du gehst zögerlich zum Gebüsch.")
+            print("Du atmest erleichtert auf, es ist nur ein kleines Kätzchen.")
 
-            choice2=input("Willst du das Kätzchen streicheln (ja/nein) ").lower()
+            choice2=wrong_input("Willst du das Kätzchen streicheln (ja/nein) ", ["ja","nein"])
 
             if choice2 == "ja":
                 print("Du streckst deine Hand aus um das Kätzchen zu streicheln.")
-                print("Plötzlich beist das Kätzchen zu und rennt weg.")
-                print("Hinter dir steht ein Goblin und schlagt dir mit der Keule auf den Kopf.")
-                print("Du stirbst einen langsamen ernidrigenden Tod.")
-                print("Ein Abenteuerer sollte immer achtsam sein",name)
+                print("Plötzlich beißt das Kätzchen zu und rennt weg.")
+                print("Hinter dir steht ein Goblin und schlägt dir mit der Keule auf den Kopf.")
+                print("Du stirbst einen langsamen erniedrigend Tod.")
+                print("Ein Abenteurer sollte immer achtsam sein",name)
                 end()
 
             elif choice2 == "nein":
                 print("Du bemerkst eine Bewegung hinter dir.")
                 print("Es ist ein Goblin.")
                 print("Du erschlägst ihn.")
-                print("Du leufst in die Richtung wo er herkam.")
+                print("Du läufst in die Richtung wo er herkam.")
                 return choice_scene5(name)
 
         elif choice1 == "nein":
-            print("Du drehst dich von dem gebüsch weg und leufst zögerlich weiter.")
+            print("Du drehst dich von dem gebüsch weg und läufst zögerlich weiter.")
             return choice_scene5(name)
 
 # Richtung Westen
 def west(name):
     print("Du siehst eine Lichtung.")
-    print("In dieser lichtung findest du viele Fußspuren sowie klauen abdrücke.")
-    print("inmitten der lichtung ist ein Blutverschmirter stein es sieht aus wie ein Opferaltar.")
+    print("In dieser Lichtung findest du viele Fußspuren sowie Klauenabdrücke.")
+    print("Inmitten der Lichtung ist ein blutverschmierter Stein. Es sieht aus wie ein Opferaltar.")
 
-    choice1 = input("Willst du dich ihm nähern oder die lichtung verlassen ? (nähern/verlassen).").lower()
+    choice1 = wrong_input("Willst du dich ihm nähern oder die lichtung verlassen ? (nähern/verlassen).", ["nähern","verlassen"])
 
     if choice1 == "nähern":
         print("Du näherst dich dem Opferaltar.")
-        print("Du hörst eine stimme hinter dir,sie kichert.")
-        print("Was tust du hier.")
+        print("Du hörst eine Stimme hinter dir,sie kichert.")
+        print("Eine Stimme flüstert: 'Was tust du hier?'")
 
-        choice2 = input("Du überlegst solltest du die Wahrheit sagen oder Lügen ? (wahrheit/lüge ").lower()
+        choice2 = wrong_input("Du überlegst solltest du die Wahrheit sagen oder Lügen ? (wahrheit/lüge) ", ["wahrheit","lüge"])
 
         if choice2 == "wahrheit":
-            print("Du frägst wer da redet und sagst du hättest dich verlaufen.")
-            print("Aus dem dunkeln tritt eine seltsames wesen vor.")
+            print("Du fragst: 'Wer ist da?'")
+            print("Du sagst: 'Ich habe mich verlaufen.'")
+            print("Aus dem dunkeln tritt eine seltsames Wesen vor.")
             print("Es stellt sich vor als Ältester und erklärt das es hier gefährlich sei.")
 
-            choice3 = input("Willst du es auf den altar ansprechen ? (ja/nein) ").lower()
+            choice3 = wrong_input("Willst du es auf den altar ansprechen ? (ja/nein) ", ["ja","nein"])
 
             if choice3 == "ja":
                 print("Du sprichst das Wesen das sich Ältester nennt auf den Blutigenaltar an.")
-                print("Das wensen kichert nur und sagt das das Opfer für den Gott Cyric er wird hier angebetet.")
+                print("Das Wesen kichert nur und sagt das das Opfer für den Gott Cyric er wird hier angebetet.")
                 print("Du überlegst ob es sich um einen Kult handeln könnte.")
                 print("Du frägst nach ob es sich dabei um menschliche opfer handelt.")
-                print("Der älteste sagt nur lachend mal so mal so aufjedenfall sind es immer Lügner.")
+                print("Der älteste sagt nur lachend :'mal so mal so auf jeden fall sind es immer Lügner.'")
 
-                choice4 = input("Du kiegst es langsam mit der Angst zu tun willst du gehen ? (ja/nein) ").lower()
+                choice4 = wrong_input("Du kriegst es langsam mit der Angst zu tun willst du gehen ? (ja/nein) ", ["ja","nein"])
 
                 if choice4 == "ja":
                     print("Du verabschiedest dich und probierst so schnell wie möglich wegzurennen.")
@@ -192,23 +195,24 @@ def west(name):
                     return text_adventure_game(name)
 
                 elif choice4 == "nein":
-                    print("Trozdeiner Angst bleibst du.")
-                    print("Du frägst langsam nach wer genau der Älteste ist und wer dieser Gott Cyric sein soll von dem du noch nie gehört has.t")
-                    print("Der Älteste erklärt das er anführer eines gewissen stammes ist der die gnade von Cyric bekommen hat das is der grund warum er aussieht wie er aussieht.")
-                    print("Er erklärt desweiteren das solange man erhlich ist keine probleme bekommt.")
+                    print("Trotz deiner Angst bleibst du.")
+                    print("Du frägst langsam nach wer genau der Älteste ist und wer dieser Gott Cyric sein soll von dem du noch nie gehört hast")
+                    print("Der Älteste erklärt das er Anführer eines gewissen Stammes ist der die Gnade von Cyric bekommen hat das ist der grund warum er aussieht wie er aussieht.")
+                    print("Er erklärt des weiteren das solange man ehrlich ist keine Probleme bekommt.")
                     print("Wie genau die Opferung doch aussieht behält er für sich.")
                     print("Er fragt dich ob du beitreten möchtest ?")
 
-                    choice5 = input("Willst du beitreten oder ablenen ? (ja/nein) ").lower()
+                    choice5 = wrong_input("Willst du beitreten oder ablehnen ? (ja/nein) ", ["ja","nein"])
 
                     if choice5 == "ja":
                         print("Du sagst zu da es dich interessiert.")
                         print("Ein unfassbarer schmerz fährt durch dich,dein Körper verändert sich.")
-                        print("Der Älteste lacht während du dich quallvoll zusammenrollst und schreist.")
+                        print("Der Älteste lacht während du dich qualvoll zusammenrollst und schreist.")
                         print("als alles vorbei ist erklärt der Älteste dir das du von nun an schwache menschen und Lügner jagen und fressen sollst.")
-                        print("Als du dein Ausseres betrachtest fällt dir auf das du dich in ein Monster verwandelt hast.")
+                        print("Als du dein Äußeres betrachtest fällt dir auf das du dich in ein Monster verwandelt hast.")
                         print("es fühlt sich auch so an als hättest du dich innerlich verändert.")
-                        print("Nun bist du kein Abenteuerer mehr", name ,"von nun an bist du ein mitglied der gefolgschaft von Cyric!")
+                        print("du bist nun zufriedener ,erfüllter ,hungriger nach fleisch")
+                        print("Nun bist du kein Abenteurer mehr", name ,"von nun an bist du ein Mitglied der Gefolgschaft von Cyric!")
                         print("Du lebst von nun an dein leben als seltsames Wesen! Und streifst durch die Wälder")
                         end()
 
@@ -222,31 +226,31 @@ def west(name):
                             print("nach einiger zeit bleibst du stehen und kuckst dich verwirrt um.")
                             print("Du hast den Wald leben verlassen.")
                             print("Ein stein fällt dir vom Herzen.")
-                            print("Du entschließt dich von nun an dich vom Wald vernzuhalten und keine auftrage dort anzunehmen.")
+                            print("Du entschließt dich von nun an dich vom Wald fernzuhalten und keine auftrage dort anzunehmen.")
                             print("Kaum zurück in der Gilde erzählst du allen was du erlebt hast doch du wirst nur ausgelacht.")
-                            print("Das ist deine schockirende geschichte ",name, "Ob du dir das eingebildet hast oder nicht.")
+                            print("Das ist deine schockierende Geschichte ",name, "Ob du dir das eingebildet hast oder nicht.")
                             end()
 
                         elif choice6 == "bleiben":
-                            print("Du entschlißt dich zu bleiben und abzuwarten.")
+                            print("Du entschließt dich zu bleiben und abzuwarten.")
                             print("Noch bevor du reagieren kannst kommen aus den dunkel schatten der umgebung"  
-                                  " weitere gestalten die dem Ältesten ahneln")
-                            print("Sie kommen immer naher als du dein schwert in panik ziehen willst")
+                                  " weitere gestalten die dem Ältesten ähneln")
+                            print("Sie kommen immer näher als du dein schwert in panik ziehen willst")
                             print("fangen die gestalten zu lachen an über deine schwäche.")
                             print("Der Älteste erklärt dir das das als Kriegshandlung gewertet wird und lacht.")
-                            print("Sie stehen mitlerweile direkt um dich herum und zereen dich auf den Opferaltar.")
-                            print("sie fangen an dich zu zereisen und zu fressen.")
+                            print("Sie stehen mittlerweile direkt um dich herum und zerren dich auf den Opferaltar.")
+                            print("sie fangen an dich zu zerreißen und zu fressen.")
                             end()
 
             elif choice3 == "nein":
                 print("Du bedankst dich für die warnung und gehst zurück richtung startpunkt.")
-                print("Das wesen ruft dir noch genervt nach etwas nach aber das verstehst du nichtmehr.")
+                print("Das wesen ruft dir noch genervt nach etwas nach aber das verstehst du nicht mehr.")
                 return text_adventure_game(name)
 
         elif choice2 == "lüge":
-            print("Du lügst, das Wesen lacht.")
+            print("'Du lügst, sagt das Wesen und lacht.")
             print("Es verschlingt dich mit Haut und Haar.")
-            print("Das letze was man hört sind deine schreie und das kanacken deiner brechenden knochen und das kichern von dem Wesen.")
+            print("Das letzte was man hört sind deine schreie und das kanaken deiner brechenden Knochen und das kichern von dem Wesen.")
             end()
 
     elif choice1 == "verlassen":
@@ -266,19 +270,20 @@ def tree_climb(name):
 
 
 def  choice_scene4(name):
-        choice4 = input("Willst du den Schreien entgegenlaufen oder umdrehen? (entgegen/umdrehen) ").lower()
+        choice4 = wrong_input("Willst du den Schreien entgegenlaufen oder umdrehen? (entgegen/umdrehen) ", ["entgegen","umdrehen"])
 
         if choice4 == "entgegen":
             print("Du rennst den Schreien entgegen.")
-            print("Einige Kreaturen greifen eine Händler Karavane an!")
+            print("Einige Kreaturen greifen eine Händler Karawane an!")
 
-            choice5 = input("Willst du helfen gehen und die Monster bekämpfen? (ja/nein) ").lower()
+            choice5 = wrong_input("Willst du helfen gehen und die Monster bekämpfen? (ja/nein) ", ["ja","nein"])
 
             if choice5 == "ja":
                 print("Du kämpfst gegen die Monster.")
                 print("Du besiegst sie, bist aber verwundet.")
                 print("Die Händler bieten dir an, dich als Dank in das nächste Dorf zu bringen.")
-                choice6 = input("Willst du annehmen? (ja/nein) ")
+
+                choice6 = wrong_input("Willst du annehmen? (ja/nein) ", ["ja","nein"])
 
                 if choice6 == "ja":
                     print("Du bedankst dich und sagst zu.")
@@ -289,11 +294,11 @@ def  choice_scene4(name):
 
                 elif choice6 == "nein":
                     print("Aus Eitelkeit lehnst du ab.")
-                    print("Du hast dich während des Kampfes verletzt.")
+                    print("Du hattest dich während des Kampfes verletzt.")
                     print("Die Verletzung ist ernster als erwartet.")
                     print("Kaum sind die Händler weg, kippst du aufgrund des Blutverlustes um.")
                     print("Du stirbst dumm aber edel, der Abenteurer", name,
-                          "gestorben an deinen Verletzungen, immerhin hatest du noch etwas Gutes getan troz deiner Eitelkeit.")
+                          "gestorben an deinen Verletzungen, immerhin hatest du noch etwas Gutes getan trotz deiner Eitelkeit.")
                     end()
 
             elif choice5 == "nein":
@@ -301,7 +306,7 @@ def  choice_scene4(name):
                 print("Du rennst einem seltsamen Wesen in die Arme.")
                 print("Es fragt dich, warum du wegrennst, anstatt deinem Gleichgesinnten zu helfen.")
 
-                choice7 = input("Lügst du aus Scham oder sagst du die Wahrheit? (wahrheit/lüge) ").lower()
+                choice7 = wrong_input("Lügst du aus Scham oder sagst du die Wahrheit? (wahrheit/lüge) ", ["wahrheit","lüge"])
 
                 if choice7 == "wahrheit":
                     print("Das Wesen lacht und sagt, es erwartet sowieso nichts von Menschen.")
@@ -319,9 +324,9 @@ def  choice_scene4(name):
 
 def choice_scene5(name):
     print("Du siehst ein Goblin Dorf")
-    print("Du wirst überascht und gesehen einer der Goblins fängt an zu schreien")
+    print("Du wirst überrascht und gesehen einer der Goblins fängt an zu schreien")
 
-    choice5 = input("Du überlegst Wegrennen oder Kämpfen (wegrennen/kämpfen) ").lower()
+    choice5 = wrong_input("Du überlegst Wegrennen oder Kämpfen (wegrennen/kämpfen) ", ["wegrennen","kämpfen"])
 
     if choice5 == "wegrennen":
         print("Du hast dich für wegrennen entscheiden")
@@ -330,51 +335,51 @@ def choice_scene5(name):
         print("Ein Pfeil durchbohrt dein Bein,du fällst zu Boden")
         print("Die Goblins holen dich ein")
 
-        choice6=input("willst du weiter wegrennen oder kämpfen (wegrennen/kämpfen)").lower()
+        choice6=wrong_input("willst du weiter wegrennen oder kämpfen (wegrennen/kämpfen)", ["wegrennen","kämpfen"])
 
         if choice6 == "wegrennen":
             print("Du probierst aufzustehen und schaffst es")
-            print("Du probierst weg zu humpeln doch wirst von einem 2 pfeil durchbohrt und fällst zu boden")
+            print("Du probierst weg zu humpeln doch wirst von einem zweiter Pfeil durchbohrt und fällst zu boden")
             print("Während du blutend am Boden liegst hörst du die Goblins lachen")
-            print("Sie lachen dich aus wie du verzweifelst probierst wegzukommen und stechen immer heufiger in deinen Rücken")
-            print("Du stierbst Quallvoll durch die ganzen einstiche in deinem Rücken")
-            print("So endet dein Weg mutiger Abendteuerer",name)
+            print("Sie lachen dich aus wie du verzweifelst probierst wegzukommen und stechen immer häufiger in deinen Rücken")
+            print("Du stirbst qualvoll  durch die ganzen Einstiche in deinem Rücken")
+            print("So endet dein Weg mutiger Abenteurer",name)
             return
 
-        elif choice6 == "kampfen":
+        elif choice6 == "kämpfen":
             print("Du ziehst dein Schwert und erschlägst so viele wie du kannst.")
             print("Du hast alle die dich verfolgten getötet aber wurdest verletzt.")
-            print("Du wirst unmächtig.")
-            print("Als du aufwachst realisirst du das du nicht mehr im Wald bist.")
-            print("Eine Abenteuergruppe hat dich schienbar gefunden und in die staat gebracht.")
+            print("Du wirst ohnmächtig.")
+            print("Als du aufwachst realisierst du das du nicht mehr im Wald bist.")
+            print("Eine Abenteuergruppe hat dich scheinbar gefunden und in die Stadt gebracht.")
             print("Du bedankst dich")
 
-            choice7=input("Willst du uns nicht beitreten? Frägt die Gruppe dich (annehmen/ablenen) ").lower()
+            choice7=wrong_input("Willst du uns nicht beitreten? Frägt die Gruppe dich (annehmen/ablehnen) ", ["annehmen","ablehnen"])
 
             if choice7 == "annehmen":
                 print("Du trittst der Gruppe bei")
-                print("Ihr geht auf viele gemeinse abenteuer")
+                print("Ihr geht auf viele gemeinsame Abenteuer")
                 print("So begann die geschichte der berühmten Abenteuergruppe von",name)
                 end()
 
-            elif choice7 == "ablenen":
+            elif choice7 == "ablehnen":
                 print("Du lehnst ab mit der begründung das du als Abenteurer aufhören willst")
                 print("Das Goblindorf hat dir ein Trauma verpasst")
-                print("Das war das erste und letze Abendteuer von",name)
-                print(name,"ist mitlerweile ein Glücklicher Bürger der stadt und hilft aus wo er kann")
+                print("Das war das erste und letzte Abenteuer von",name)
+                print(name,"ist mittlerweile ein Glücklicher Bürger der stadt und hilft aus wo er kann")
                 end()
 
     elif choice5 == "kämpfen":
-        print("Du kampfst und schwingst dein Schwert")
-        print("Doch es sind zu viele du bist am ende deiner Kraft")
-        print("Ihre überzahl überweltigt dich")
-        print("Du gehst in den ganzen grünen Körpfern unter")
-        print("Die letzen worte von dir sind nur wie konnte das passieren")
-        print("Das is das ende des Abenteuers",name)
+        print("Du kämpfst und schwingst dein Schwert")
+        print("Doch es sind zu viele du bist am Ende deiner Kraft")
+        print("Ihre überzahl überwältigt  dich")
+        print("Du gehst in den ganzen grünen Körpern unter")
+        print("Die letzten worte von dir sind nur:'wie konnte das passieren?'")
+        print("Das ist das ende des Abenteuers",name)
         end()
 
 def end():
-    choice = input("Willst du neu anfangen ? (ja/nein)").lower()
+    choice = wrong_input("Willst du neu anfangen ? (ja/nein)", ["ja","nein"])
     if choice == "ja":
         player_name = Hero_name()
         text_adventure_game(player_name)
@@ -383,7 +388,18 @@ def end():
         exit()
 
     else:
-        print("Ja oder Nein eingeben?")
+        print("Du kannst nur 'ja' oder 'nein' eingeben! Bitte wähle erneut.")
+
+
+#das der spieler nur eine der 2 entscheidungen treffen kann
+def wrong_input(prompt,options):
+    while True:
+        choice = input(prompt).lower()    #prompt= der Text dem Spieler zeigt werden soll
+        if choice in options :
+            return choice
+        else:
+            print("Du kannst nur eine der 2 möglichkeiten eingeben! Bitte wähle erneut.")
+
 
 while True:
     choice = menu()
@@ -398,13 +414,3 @@ while True:
                 text_adventure_game(player_name)
         case "3":
             break
-
-
-
-
-
-
-
-
-
-
