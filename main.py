@@ -77,7 +77,7 @@ class Game:
         if choice1 == "ja":
             print(self.player_name, "du hörst eine Stimme rufen.")
 
-            choice2 = self.wrong_input("Willst du zurückrufen oder umkehren? (zurückrufen/umkehren) ", ["(zurückrufen","umkehren"])
+            choice2 = self.wrong_input("Willst du zurückrufen oder umkehren? (zurückrufen/umkehren) ", ["zurückrufen","umkehren"])
 
             if choice2 == "zurückrufen":
                 print("Du versuchst mit der Stimme zu reden.")
