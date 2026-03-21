@@ -22,6 +22,7 @@ class Game:
             choice = input("Wähle eine Option: ")
             print("Du hast gewählt:", choice)
             if choice not in ["1","2","3"]:
+
                 print("Ungültige Option, bitte erneut zwischen 1,2,3 wählen.")
         return choice
 
@@ -35,7 +36,8 @@ class Game:
     def start_game(self):
         while True:
             print("Du bist im Wald,", self.player_name)
-            choice = self.wrong_input("Wo willst du hin? (norden/osten/süden/westen/baum) ").lower()
+            choice = self.wrong_input(
+                "Wo willst du hin? (norden/osten/süden/westen/baum) ",["norden", "osten", "süden", "westen", "baum"]).lower()
             if choice == "norden":
                 self.north()
             elif choice == "osten":
@@ -64,25 +66,6 @@ class Game:
         else:
             print("Danke fürs Spielen")
             exit()
-
-
-#menü ausgabe was passieren soll
-game = Game()
-
-while True:
-    choice = game.menu()
-
-    match choice:
-        case "1":
-            game.set_heroname()
-        case "2":
-            if game.player_name is None:
-                print("Bitte Namen wählen")
-            else:
-                game.start_game()
-        case "3":
-            break
-
 
 #verschiedene Szenen
 #Richtung norden
@@ -428,3 +411,20 @@ while True:
             print("Du gehst in den ganzen grünen Körpern unter")
             print("Die letzten worte von dir sind nur:'wie konnte das passieren?'")
             self.game_over(f"Das ist das ende des Abenteuers{self.player_name}")
+
+#menü ausgabe was passieren soll
+game = Game()
+
+while True:
+    choice = game.menu()
+
+    match choice:
+        case "1":
+            game.set_heroname()
+        case "2":
+            if game.player_name is None:
+                print("Bitte Namen wählen")
+            else:
+                game.start_game()
+        case "3":
+            break
